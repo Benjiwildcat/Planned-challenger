@@ -2,10 +2,36 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-let currentDate = document.querySelector(".lead")
-currentDate.textContent = dayjs().format('MM / DD / YYYY')
-// let hour = document.querySelector("#hour");
-// let currentTime = dayjs()
+let currentDate = document.querySelector("#currentDay");
+currentDate.textContent = dayjs().format('MM / DD / YYYY');
+
+
+
+
+for (let i = 0; i < 9; i++) {
+
+  let hourEl = document.querySelector("#hour-" + (i + 9));
+  let currentTime = dayjs().hour()
+
+  if (currentTime < parseInt(document.querySelectorAll(".row")[i].dataset.time)
+
+  ) {
+
+    hourEl.classList.add("past");
+  }
+
+  else if (currentTime === parseInt(document.querySelectorAll(".row")[i].dataset.time)) {
+
+    hourEl.classList.add("present");
+
+  } else {
+    hourEl.classList.add("future");
+  }
+
+
+
+}
+
 
 // console.log(currentTime)
 
