@@ -8,19 +8,19 @@ currentDate.textContent = dayjs().format('MM / DD / YYYY');
 
 
 
-for (let i = 0; i < 9; i++) {
+for (let i = 9; i < 18; i++) {
 
-  let hourEl = document.querySelector("#hour-" + (i + 9));
+  let hourEl = document.querySelector("#hour-" + i);
   let currentTime = dayjs().hour()
-
-  if (currentTime < parseInt(document.querySelectorAll(".row")[i].dataset.time)
+  console.log(hourEl, currentTime, i, hourEl.dataset.time)
+  if (currentTime < parseInt(hourEl.dataset.time)
 
   ) {
 
     hourEl.classList.add("past");
   }
 
-  else if (currentTime === parseInt(document.querySelectorAll(".row")[i].dataset.time)) {
+  else if (currentTime === parseInt(hourEl.dataset.time)) {
 
     hourEl.classList.add("present");
 
